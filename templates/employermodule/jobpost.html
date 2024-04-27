@@ -1,0 +1,59 @@
+{% extends 'Navbar/employernavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<h1>This is Job Post page from Employer App</h1>
+<div>
+    <div class = "container mt-5">
+        <h3> Job Details Form </h3>
+        <form method="post" action="{% url 'employermodule:add_job_details' %}">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for = "workTitle">Work Title</label>
+                <input type = "text" class = "form-control" name = "workTitle" id = "workTitle" placeholder="Enter the Work Title">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for = "salaryOffered">Salary offered</label>
+                <input type = "text" class = "form-control" name = "salaryOffered" id = "salaryOffered" placeholder="salaryOffered">
+            </div><br>
+                        <div class="form-group">
+                <label for = "jobType">Job Type</label>
+                <select class = "form-control" name = "jobType" id = "jobType">
+                    <option value="fullTime">Full-Time</option>
+                    <option value="partTime">Part-Time</option>
+                    <option value = "contract">Contract</option>
+                </select><br>
+                            <div class = "form-group">
+                                <label for = "benefits">Benefits</label>
+                                <textarea class = "form-control" name = "benefits" id = "benefits" rows="1" placeholder="Enter the benefits"></textarea>
+                            </div><br>
+                                        <div class="form-group">
+                <label for = "education">Education</label>
+                <input type = "text" class = "form-control" name = "education" id = "education" placeholder="Enter the education">
+            </div><br>
+                            <div class="form-group">
+                <label for = "requiredSkills">Required Skills</label>
+                <input type = "text" class = "form-control" name = "requiredSkills" id = "requiredSkills" placeholder="Enter the requiredSkills">
+            </div><br>
+                            <div class="form-group">
+                <label for = "workLocation">Work  Location</label>
+                <input type = "text" class = "form-control" name = "workLocation" id = "workLocation" placeholder="Enter the workLocation">
+            </div>
+
+            </div><br><br><br>
+            <button type="submit" class="btn btn-primary">Post the Job</button>
+        </form><br><br><br><br>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

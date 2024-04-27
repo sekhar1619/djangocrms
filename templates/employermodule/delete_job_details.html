@@ -1,0 +1,28 @@
+{% extends 'Navbar/employernavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'path/to/bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+  <div class="row justify-content-left">
+    <div class = "col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <p>Are you sure you want to detele "{{ job_details.work_title }}"?</p>
+          <form method="post" action="#">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>

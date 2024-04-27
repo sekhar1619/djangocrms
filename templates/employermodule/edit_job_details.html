@@ -1,0 +1,69 @@
+{% extends 'Navbar/employernavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'path/to/bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" action="#">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label for="workTitle">Work Title:</label>
+                            <input type="text" class="form-control" name="workTitle" value="{{ job_details.work_title }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="salaryOffered">Salary Offered:</label>
+                            <input type="text" class="form-control" name="salaryOffered" value="{{ job_details.salary_offered }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jobType">Job Type:</label>
+                            <select class="form-control" name="jobType" required>
+                                <option value="fullTime" {% if job_details.job_type == 'fullTime' %}selected{% endif %}>Full-time</option>
+                                <option value="partTime" {% if job_details.job_type == 'partTime' %}selected{% endif %}>Part-time</option>
+                                <option value="contract" {% if job_details.job_type == 'contract' %}selected{% endif %}>Contract</option>
+                                <!-- Add more options if needed -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="benefits">Benefits:</label>
+                            <textarea class="form-control" name="benefits" required>{{ job_details.benefits }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="education">Education:</label>
+                            <input type="text" class="form-control" name="education" value="{{ job_details.education }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workLocation">Work Location:</label>
+                            <input type="text" class="form-control" name="workLocation" value="{{ job_details.work_location }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="requiredSkills">Required Skills:</label>
+                            <textarea class="form-control" name="requiredSkills" required>{{ job_details.required_skills }}</textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends 'Navbar/employernavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        {% for job_details in job_details_list %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ job_details.work_title }}</h5>
+                        <p class="card-text">Salary Offered: {{ job_details.salary_offered }}</p>
+                        <p class="card-text">Job Type: {{ job_details.get_job_type_display }}</p>
+                        <p class="card-text">Benefits: {{ job_details.benefits }}</p>
+                        <p class="card-text">Education: {{ job_details.education }}</p>
+                        <p class="card-text">Work Location: {{ job_details.work_location }}</p>
+                        <p class="card-text">Required Skills: {{ job_details.required_skills }}</p>
+
+                        <a href="{% url 'employermodule:edit_job_details' job_details.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'employermodule:delete_job_details' job_details.id %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,244 @@
+{% extends 'Navbar/projectnavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Home Page</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for styling */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 36px;
+            color: #333;
+            text-align: center;
+        }
+
+        .section {
+            padding: 50px 0; /* Adjust padding to add space */
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .about-box {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .about-box p {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .service-box {
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .service-box .card {
+            height: 100%;
+        }
+
+        .contact-form {
+            margin-top: 30px;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .contact-form .form-control {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form textarea.form-control {
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: #ffd700;
+            color: #333;
+            padding: 15px 30px; /* Increase padding to make the button larger */
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px; /* Add margin to separate button from input fields */
+        }
+
+        .contact-form button:hover {
+            background-color: #f0c800;
+        }
+    </style>
+</head>
+<body>
+{% block body%}
+<div class="container">
+    <h1 style="text-align: center;" >CAMPUS RECRUITMENT MANAGEMENT SYSTEM</h1>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/index1.jpg' %}" height="555" width="300" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/index2.jpg' %}" height="555" width="300" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/index3.jpg' %}" height="555" width="300" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<!-- About Section -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-title">
+            <h2><i class="fas fa-info-circle"></i> About Us</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="about-box">
+                    <p>Empowering career aspirations, our Campus Recruitment Management System streamlines talent acquisition, facilitating seamless connections between students and employers. Through innovative tools and comprehensive features, we enhance the recruitment process, fostering growth for both individuals and organizations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-title">
+            <h2><i class="fas fa-cogs"></i> Our Services</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="service-box">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3></h3>
+                            <p>Job Posting and Vacancy Management: Our platform allows companies to post job openings and manage vacancies efficiently, reaching a wide pool of qualified candidates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-box">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3></h3>
+                            <p>Candidate Screening and Evaluation: We offer tools for screening resumes, conducting assessments, and evaluating candidates to identify the best fit for job roles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-box">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3></h3>
+                            <p>Interview Scheduling and Management: Our system simplifies the interview process by providing scheduling tools, interview tracking, and candidate communication features, streamlining the entire recruitment workflow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section" id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2><i class="fas fa-phone"></i> Contact Us</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form action="#" class="contact-form">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message"><i class="fas fa-comment"></i> Message</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-md-6">
+                <p>Have questions or inquiries? Reach out to us for personalized assistance and support. Our dedicated team is here to address your needs and provide timely solutions. Contact us today for a seamless experience.</p>
+
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i> Submit</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+<!-- Include Bootstrap JS (optional) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

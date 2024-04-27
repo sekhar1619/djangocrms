@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .signup-container {
+            background-color: #fff;
+            padding: 40px; /* Increased padding */
+            border-radius: 10px; /* Increased border radius */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increased box shadow */
+            width: 400px; /* Increased form width */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center form content horizontally */
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%; /* Full width for input fields */
+            padding: 10px;
+            margin-bottom: 20px; /* Increased margin bottom */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            margin-right: 5px; /* Adjusted spacing */
+        }
+        label.checkbox-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px; /* Increased margin bottom */
+        }
+        .password-field {
+            position: relative;
+            width: 100%;
+        }
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+
+             .user-type-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .user-type-container label {
+            margin-right: 10px;
+            width: 110px; /* Set label width */
+            text-align: right; /* Align labels to the right */
+            box-sizing: border-box;
+            padding-right: 10px;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 24px; /* Increased padding */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .terms-link {
+            color: #007bff; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+    </style>
+</head>
+<body>
+{% block body %}
+{% if messages %}
+{% for message in messages %}
+{% if message.tags %}
+<script>alert ("{{ message }}")</script>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+    <div class="signup-container">
+        <form action="{% url 'signup1' %}" method="POST">
+            {% csrf_token %}
+            <h2>Sign Up</h2>
+
+            <input type="text" name="username" id="username" placeholder="Username" required>
+
+            <div class="password-field">
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility('password')">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
+
+            <div class="password-field">
+                <input type="password" name="password1" id="reenterpassword" placeholder="Re-enter Password" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility('reenterpassword')">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
+            <div class="user-type-container">
+            <label for="user_type">Select User Type:</label>
+            <input type="radio" id="student" name="user_type" value="student" required>
+            <label for="student">Student</label>
+            <input type="radio" id="company" name="user_type" value="company" required>
+            <label for="company">Company</label>
+        </div>
+            <br>
+
+            <label class="checkbox-label">
+                <input type="checkbox" id="agree_terms" required> I agree to all statements in <a href="terms_of_service.html" class="terms-link">Terms & Conditions</a>
+            </label>
+            <br>
+
+            <input type="submit" value="Sign Up"><br>
+
+            <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="login"
+                class="fw-bold text-body"><u>Login here</u></a></p>
+        </form>
+    </div>
+
+<script>
+    function togglePasswordVisibility(fieldId) {
+        const field = document.getElementById(fieldId);
+        const icon = document.querySelector(#${fieldId} + .password-toggle i);
+
+        if (field.type === "password") {
+            field.type = "text";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        } else {
+            field.type = "password";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        }
+    }
+</script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends 'navbar/jobseekerNavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+    <h2>Job Details List</h2>
+
+    <div class="row">
+        {% for job_details in job_details_list %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ job_details.work_title }}</h5>
+                        <p class="card-text">
+                            <strong>Salary Offered:</strong> {{ job_details.salary_offered }}<br>
+                            <strong>Job Type:</strong> {{ job_details.get_job_type_display }}<br>
+                            <strong>Benefits:</strong> {{ job_details.benefits|linebreaks }}<br>
+                            <strong>Education Requirements:</strong> {{ job_details.education }}<br>
+                            <strong>Work Location:</strong> {{ job_details.work_location }}<br>
+                            <strong>Required Skills:</strong> {{ job_details.required_skills|linebreaks }}
+                        </p>
+
+                        <!-- Apply button -->
+                        <a href="{% url 'jobseekermodule:apply_to_job' job_details.id %}" class="btn btn-success">Apply to this job</a>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+{% endblock %}
+</body>
+</html>
